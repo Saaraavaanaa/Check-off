@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100vw;
+    padding: 5% 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.section-1 {
+    height: 90vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.list {
+    width: 30%;
+    height: 600px;
+    display: flex;
+    padding: 20px;
+    flex-flow: column wrap;
+    border: 1px solid black;
+}
+
+label {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+ul li {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
