@@ -13,33 +13,54 @@
 
 <body>
     <header>
-        <h1>Check Off Shopping List</h1>
+        <h1 style="color: rgb(59, 140, 187);font-weight:bolder;">Check Off Shopping List</h1>
     </header>
     <section class="section-1">
         <div class="to-buy list" ng-controller="toBuyController as toBuy">
-            <label><b>to buy</b></label>
-            <ul class="items-list">
-                <li ng-repeat="item in toBuy.items">
+            <div class="a">
+                <label style="color: blue; font-size: 20px; font-family: 'Times New Roman', Times, serif;"><b>To Buy</b></label>
+                <ul class="items-list">
+                    <!-- <li ng-repeat="item in toBuy.items">
                     <div>Buy {{item.quantity}} {{item.name}}</div>
                     <button class="button" ng-click="toBuy.moveItem($index)">Bought</button>
-                </li>
-            </ul>
-            <div class="message" ng-if="!toBuy.items.length">
-                every think is bought
+                </li> -->
+                    <li ng-repeat="item in toBuy.item" ng-if="toBuy.item.length">
+                        <div>Buy {{item.quantity}} {{item.name}}</div>
+                        <button class="button" ng-click="toBuy.moveItem1($index)">Bought</button>
+                    </li>
+                </ul>
+
+                <div class=" message " ng-if="!(toBuy.item.length)" ng-show="!(toBuy.items.length)">
+                    every think is bought
+                </div>
             </div>
+            <footer>
+                <div class="fotter">
+                    <input type="text" placeholder="Name of the product" ng-model="toBuy.name" >
+                    <input type="text" ng-model="toBuy.quantity" placeholder="Number of quantity">
+                    <button ng-click="toBuy.add()" style="background-color:red; border-color: transparent;box-shadow: 2px 3px 2px wheat; color:wheat">ADD</button>
+                </div>
+            </footer>
         </div>
-        <div class="already-bought list" ng-controller="alreadyBoughtController as alreadyBought">
-            <label><b>already bought</b></label>
-            <ul class="items-list">
-                <li ng-repeat="item in alreadyBought.items">
-                    <div>Bought {{item.quantity}} {{item.name}}</div>
-                </li>
-            </ul>
-            <div class="message" ng-hide="alreadyBought.items.length">
-                no thing bought yet
+        <div class="already-bought list  " ng-controller="alreadyBoughtController as alreadyBought">
+            <div class="a">
+                <label style="color: blue; font-size: 20px; font-family: 'Times New Roman', Times, serif;"><b>Already Bought</b></label>
+
+                <ul class="items-list ">
+                    <li ng-repeat="item in alreadyBought.items">
+                        <div>Bought {{item.quantity}} {{item.name}}</div>
+                        <button class="button " ng-click="alreadyBought.remove($index)">remove</button>
+                    </li>
+                </ul>
+                <div class="message " ng-hide="alreadyBought.items.length">
+                    no thing bought yet
+                </div>
             </div>
+
         </div>
+
     </section>
+
 </body>
 
 </html>
